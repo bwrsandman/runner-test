@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  cmake-version:
+    name: Check compatibility with minimum cmake version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check cmake version
+        run: |
+          ls /usr/local/bin
+          ls $ANDROID_HOME/cmake/*/bin/cmake
+          which cmake
+          cmake --version
+
